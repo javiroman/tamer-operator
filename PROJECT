@@ -1,0 +1,27 @@
+domain: kubernetesbigdataeg.org
+layout:
+- go.kubebuilder.io/v3
+plugins:
+  deploy-image.go.kubebuilder.io/v1-alpha:
+    resources:
+    - domain: kubernetesbigdataeg.org
+      group: bigdata
+      kind: Tamer
+      options:
+        image: kubernetesbigdataeg/tamer:1.0.0-SNAPSHOT
+      version: v1alpha1
+  manifests.sdk.operatorframework.io/v2: {}
+  scorecard.sdk.operatorframework.io/v2: {}
+projectName: tamer-operator
+repo: github.com/kubernetes-big-data-eg/tamer-operator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: kubernetesbigdataeg.org
+  group: bigdata
+  kind: Tamer
+  path: github.com/kubernetes-big-data-eg/tamer-operator/api/v1alpha1
+  version: v1alpha1
+version: "3"
