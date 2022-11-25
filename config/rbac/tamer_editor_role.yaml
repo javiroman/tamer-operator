@@ -1,0 +1,24 @@
+# permissions for end users to edit tamers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: tamer-editor-role
+rules:
+- apiGroups:
+  - bigdata.kubernetesbigdataeg.org
+  resources:
+  - tamers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - bigdata.kubernetesbigdataeg.org
+  resources:
+  - tamers/status
+  verbs:
+  - get
